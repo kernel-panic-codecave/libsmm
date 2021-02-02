@@ -3,3 +3,5 @@ output
 example/*.elf
 example/*.nacp
 example/*.nro
+example/*.nso
+example/*.pfs0
