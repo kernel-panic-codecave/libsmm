@@ -1,0 +1,5 @@
+build
+output
+example/*.elf
+example/*.nacp
+example/*.nro
