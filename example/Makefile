@@ -162,7 +162,7 @@ DEPENDS	:=	$(OFILES:.o=.d)
 #---------------------------------------------------------------------------------
 # main targets
 #---------------------------------------------------------------------------------
-all	:	$(OUTPUT).pfs0 $(OUTPUT).nro
+all	:	$(OUTPUT).pfs0 $(OUTPUT).smm
 
 $(OUTPUT).pfs0	:	$(OUTPUT).nso
 
@@ -174,9 +174,15 @@ else
 $(OUTPUT).nro	:	$(OUTPUT).elf
 endif
 
+$(OUTPUT).smm	:	$(OUTPUT).nro
+
 $(OUTPUT).elf	:	$(OFILES)
 
 $(OFILES_SRC)	: $(HFILES_BIN)
+
+%.smm :		%.nro
+	@cp $(basename $@).nro $@
+	@echo built ... $(notdir $@)
 
 #---------------------------------------------------------------------------------
 # you need a rule like this for each extension you use as binary data
